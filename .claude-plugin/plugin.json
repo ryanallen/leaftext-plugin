@@ -1,0 +1,8 @@
+{
+  "name": "leaftext",
+  "version": "1.0.0",
+  "description": "Read, edit, check, tick and save the documents open in Leaftext, and write Markdown Leaftext draws.",
+  "author": { "name": "Ryan Allen" },
+  "homepage": "https://leaftext.com",
+  "keywords": ["leaftext", "markdown", "documents", "mcp"]
+}

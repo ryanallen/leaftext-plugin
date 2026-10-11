@@ -1,0 +1,12 @@
+{
+  "name": "leaftext",
+  "owner": { "name": "Ryan Allen" },
+  "description": "The Leaftext plugin, which lets a coding agent work on the documents open in Leaftext.",
+  "plugins": [
+    {
+      "name": "leaftext",
+      "source": "./",
+      "description": "Read, edit, check, tick and save the documents open in Leaftext, and write Markdown Leaftext draws."
+    }
+  ]
+}

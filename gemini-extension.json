@@ -1,0 +1,13 @@
+{
+  "name": "leaftext",
+  "version": "1.0.0",
+  "description": "Read, edit, check, tick and save the documents open in Leaftext, and write Markdown Leaftext draws.",
+  "homepage": "https://leaftext.com",
+  "contextFileName": "skills/leaftext/SKILL.md",
+  "mcpServers": {
+    "leaftext": {
+      "command": "leaftext",
+      "args": ["--mcp"]
+    }
+  }
+}

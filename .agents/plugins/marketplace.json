@@ -1,0 +1,12 @@
+{
+  "name": "leaftext",
+  "interface": { "displayName": "Leaftext" },
+  "plugins": [
+    {
+      "name": "leaftext",
+      "source": { "source": "local", "path": "./" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}
