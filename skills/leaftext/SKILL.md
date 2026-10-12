@@ -53,3 +53,7 @@ Write a table of records that point at each other as a relational table: each ro
 ## After any write
 
 Run `leaftext_check` on the document after you write to it and before you say the work is done, including after a save and after a ticked box. Report what it found or that it found nothing.
+
+## When Leaftext's harness sends a turn back
+
+A project holding a trusted `HARNESS.md` has every attempt scored against its checks when the turn ends. A message beginning "Leaftext's harness sent this attempt back" is your next instruction: fix what each failing check printed, read any skill it names before the next change, and end the turn again. When it says the supervisor stepped in, do what it says — plan a different change, or start from the best attempt it names — rather than repeating the last one. The address at its end is the run note holding every attempt. Never edit `HARNESS.md` to make a check pass, and never run `leaftext --harness trust`; trusting a file is the reader's decision.
