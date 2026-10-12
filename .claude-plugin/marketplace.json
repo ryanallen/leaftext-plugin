@@ -6,7 +6,7 @@
     {
       "name": "leaftext",
       "source": "./",
-      "description": "Read, edit, check, tick and save the documents open in Leaftext, and write Markdown Leaftext draws."
+      "description": "Read, edit, check, tick and save the documents open in Leaftext, write Markdown Leaftext draws, and see and operate your other windows once you allow it."
     }
   ]
 }
