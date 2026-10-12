@@ -10,7 +10,7 @@
     ],
     "PostToolUse": [
       {
-        "matcher": "Write|Edit|MultiEdit|NotebookEdit|apply_patch",
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit|apply_patch|Bash|PowerShell",
         "hooks": [
           { "type": "command", "command": "leaftext --harness wrote", "timeout": 10 }
         ]
@@ -32,7 +32,7 @@
     ],
     "AfterTool": [
       {
-        "matcher": "write_file|replace",
+        "matcher": "write_file|replace|run_shell_command",
         "hooks": [
           { "type": "command", "command": "leaftext --harness wrote", "timeout": 10000 }
         ]
