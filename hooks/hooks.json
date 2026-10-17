@@ -1,6 +1,9 @@
 {
-  "description": "Leaftext's harness: a folder holding a trusted HARNESS.md has every attempt scored against its checks, kept in a run note, and sent back when a check fails. Claude Code and Codex read the first three events, Gemini CLI the last three.",
+  "description": "Claude Code and Codex report saved conversation titles; a trusted HARNESS.md also scores their work. Gemini CLI runs the corresponding harness hooks.",
   "hooks": {
+    "SessionStart": [
+      { "hooks": [{ "type": "command", "command": "leaftext --harness start", "timeout": 2 }] }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [
@@ -14,7 +17,8 @@
         "hooks": [
           { "type": "command", "command": "leaftext --harness wrote", "timeout": 10 }
         ]
-      }
+      },
+      { "hooks": [{ "type": "command", "command": "leaftext --harness title", "timeout": 2 }] }
     ],
     "Stop": [
       {
