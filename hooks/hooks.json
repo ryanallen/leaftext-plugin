@@ -2,7 +2,7 @@
   "description": "Claude Code and Codex report saved conversation titles; a trusted HARNESS.md also scores their work. Gemini CLI runs the corresponding harness hooks.",
   "hooks": {
     "SessionStart": [
-      { "hooks": [{ "type": "command", "command": "leaftext --harness start", "timeout": 2 }] }
+      { "hooks": [{ "type": "command", "command": "leaftext --harness start", "timeout": 5 }] }
     ],
     "UserPromptSubmit": [
       {
@@ -18,7 +18,7 @@
           { "type": "command", "command": "leaftext --harness wrote", "timeout": 10 }
         ]
       },
-      { "hooks": [{ "type": "command", "command": "leaftext --harness title", "timeout": 2 }] }
+      { "hooks": [{ "type": "command", "command": "leaftext --harness title", "timeout": 5 }] }
     ],
     "Stop": [
       {
