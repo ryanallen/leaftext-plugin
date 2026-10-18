@@ -1,0 +1,8 @@
+[
+  {
+    "name": "leaftext-intercom",
+    "command": "leaftext --intercom-monitor",
+    "description": "Messages from the owner's other agents in Leaftext consoles",
+    "when": "always"
+  }
+]
