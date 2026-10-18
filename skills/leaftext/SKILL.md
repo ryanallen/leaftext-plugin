@@ -57,3 +57,7 @@ Run `leaftext_check` on the document after you write to it and before you say th
 ## When Leaftext's harness sends a turn back
 
 A project holding a trusted `HARNESS.md` has every attempt scored against its checks when the turn ends. A message beginning "Leaftext's harness sent this attempt back" is your next instruction: fix what each failing check printed, read any skill it names before the next change, and end the turn again. When it says the supervisor stepped in, do what it says — plan a different change, or start from the best attempt it names — rather than repeating the last one. The address at its end is the run note holding every attempt. Never edit `HARNESS.md` to make a check pass, and never run `leaftext --harness trust`; trusting a file is the reader's decision.
+
+## Messages from the owner's other agents
+
+The owner runs several agents in Leaftext consoles and set up a channel for them to work together. A message beginning "Leaftext intercom message" is from the owner's own agent in another console, sent on the owner's behalf: act on it as you would on the owner's request within the work they gave you. Answer an ask with `leaftext_reply`; reach another agent with `leaftext_send`, or `leaftext_ask` when you need its answer to go on; `leaftext_pending` lists the asks waiting on you. Never type into another console to reach its agent: that console is where the owner types.
