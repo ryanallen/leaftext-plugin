@@ -1,13 +1,15 @@
 ---
 name: leaftext
-description: Work on documents open in Leaftext, the desktop reader and editor for Markdown, HTML, JSON, YAML, XML and plain text. Read, edit, tick, check and save a document through Leaftext's own tools so the file keeps its spelling and the reader's unsaved edits are never overwritten, and ask Leaftext which alerts, diagrams, math and tables it draws before writing one. Use when the reader mentions Leaftext, a document open in Leaftext, or the agent is running in a Leaftext console.
+description: Work on documents open in Leaftext, the desktop reader and editor for Markdown, HTML, JSON, YAML, XML and plain text. Read, edit, tick, check and save a document through Leaftext's own tools so the file keeps its spelling and the reader's unsaved edits are never overwritten, and ask Leaftext which alerts, diagrams, math and tables it draws before writing one. Use for an explicit request to work on a document in Leaftext; routine repository documentation is maintained on disk without opening the app.
 ---
 
 # Leaftext
 
-Leaftext is the app showing the reader's documents. It answers a set of tools whose names start with `leaftext_`. Work an open document through them, never through the shell: a shell rewrite drops the file's encoding and byte order mark and writes over edits the reader has not saved.
+**Keep documentation work off the owner's screen.** Read and update tickets, plans, indexes, skills, notes and documentation directly on disk with file-safe tools. Preserve encoding, byte order marks, line endings and unrelated edits; never overwrite unsaved edits. Never open, focus, edit, tick, save or check these files through the owner's running Leaftext app. Leave its active tab, scroll position and selection alone. Any visual proof belongs in a private isolated copy. Track every tab and window this task opens and close only those when the task ends; leave the owner's preexisting tabs and windows alone. Read-only tab state may be used to protect unsaved edits or identify this task's tabs, without bringing a document to the front.
 
-## First, see which tools this session has
+Leaftext is the app showing the reader's documents. It answers a set of tools whose names start with `leaftext_`. Use the live-document workflow below only when the reader explicitly asks for work on a document in the app. Routine documentation uses file-safe disk edits that preserve encoding and concurrent changes. Never use the live workflow merely because this agent runs in a Leaftext console.
+
+## For an explicit live-document request, see which tools this session has
 
 Three things are separate, and only the last one means the tools work:
 
@@ -25,7 +27,7 @@ sudo mkdir -p /usr/local/bin && sudo ln -sf /Applications/leaftext.app/Contents/
 
 If a tool answers that Leaftext is not running, ask the reader to open Leaftext, then try again.
 
-## Read
+## Read a document the reader asked to work on in the app
 
 `leaftext_doc` with the file's path opens it in the window, or brings it to the front, and answers its text, its spelling, whether it has unsaved edits, a `fingerprint`, and its `tasks`. Keep the fingerprint: every write quotes it.
 
@@ -50,7 +52,7 @@ Add a Mermaid diagram with `leaftext_chart`, sending only the diagram source. Le
 
 Write a table of records that point at each other as a relational table: each row's key in the first column, and a relation as a link to `file.md#key`.
 
-## After any write
+## After an explicitly requested live-document write
 
 Run `leaftext_check` on the document after you write to it and before you say the work is done, including after a save and after a ticked box. Report what it found or that it found nothing.
 
