@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "leaftext": {
-      "command": "leaftext",
-      "args": ["--mcp"]
-    }
-  }
-}

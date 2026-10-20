@@ -31,7 +31,10 @@ Then install Leaftext from `/plugins` in Codex.
 
 ```
 git clone https://github.com/ryanallen/leaftext-plugin ~/.gemini/config/plugins/leaftext
+agy mcp add leaftext -- leaftext --mcp
 ```
+
+For an existing clone, update it with `git -C ~/.gemini/config/plugins/leaftext pull`, then run `agy mcp add leaftext -- leaftext --mcp`. Check the server with `agy mcp list`.
 
 **Gemini CLI**
 
