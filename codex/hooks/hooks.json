@@ -1,0 +1,53 @@
+{
+  "description": "Claude Code and Codex report saved conversation titles; a trusted HARNESS.md also scores their work. Gemini CLI runs the corresponding harness hooks.",
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [{ "type": "command", "command": "leaftext --harness start", "timeout": 5 }] }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "leaftext --harness prompt", "timeout": 10 }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit|apply_patch|Bash|PowerShell",
+        "hooks": [
+          { "type": "command", "command": "leaftext --harness wrote", "timeout": 10 }
+        ]
+      },
+      { "hooks": [{ "type": "command", "command": "leaftext --harness title", "timeout": 5 }] }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "leaftext --harness stop", "timeout": 3600 }
+        ]
+      }
+    ],
+    "BeforeAgent": [
+      {
+        "hooks": [
+          { "type": "command", "command": "leaftext --harness prompt", "timeout": 10000 }
+        ]
+      }
+    ],
+    "AfterTool": [
+      {
+        "matcher": "write_file|replace|run_shell_command",
+        "hooks": [
+          { "type": "command", "command": "leaftext --harness wrote", "timeout": 10000 }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "hooks": [
+          { "type": "command", "command": "leaftext --harness stop", "timeout": 3600000 }
+        ]
+      }
+    ]
+  }
+}

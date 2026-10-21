@@ -1,47 +1,7 @@
 {
-  "leaftext": {
-    "SessionStart": [
-      {
-        "type": "command",
-        "command": "leaftext --harness start",
-        "timeout": 10
-      }
-    ],
-    "PreInvocation": [
-      {
-        "type": "command",
-        "command": "leaftext --harness prompt",
-        "timeout": 10
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "write_to_file|replace_file_content|multi_replace_file_content|run_command",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "leaftext --harness wrote",
-            "timeout": 10
-          }
-        ]
-      },
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "leaftext --harness title",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "type": "command",
-        "command": "leaftext --harness stop",
-        "timeout": 600
-      }
-    ]
+  "leaftext-status": {
+    "SessionStart": [{ "type": "command", "command": "leaftext --harness status", "timeout": 5 }],
+    "PostToolUse": [{ "hooks": [{ "type": "command", "command": "leaftext --harness status", "timeout": 5 }] }],
+    "Stop": [{ "type": "command", "command": "leaftext --harness status", "timeout": 5 }]
   }
 }

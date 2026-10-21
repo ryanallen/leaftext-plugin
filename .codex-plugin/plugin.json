@@ -1,0 +1,8 @@
+{
+  "name": "leaftext",
+  "version": "1.0.0",
+  "description": "Read, edit, check, tick and save the documents open in Leaftext, write Markdown Leaftext draws, and see and operate your other windows once you allow it.",
+  "author": { "name": "Ryan Allen" },
+  "homepage": "https://leaftext.com",
+  "hooks": "./hooks/hooks.json"
+}
