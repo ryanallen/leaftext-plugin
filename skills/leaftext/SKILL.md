@@ -1,6 +1,6 @@
 ---
 name: leaftext
-description: Work on documents open in Leaftext, the desktop reader and editor for Markdown, HTML, JSON, YAML, XML and plain text. Read, edit, tick, check and save a document through Leaftext's own tools so the file keeps its spelling and the reader's unsaved edits are never overwritten, and ask Leaftext which alerts, diagrams, math and tables it draws before writing one. Use for an explicit request to work on a document in Leaftext; routine repository documentation is maintained on disk without opening the app.
+description: Work on documents open in Leaftext, the desktop reader and editor for Markdown, HTML, JSON, YAML, XML and plain text. Read, edit, tick, check and save a document through Leaftext's own tools so the file keeps its spelling and the reader's unsaved edits are never overwritten, and ask Leaftext which alerts, diagrams, math and tables it draws before writing one. Browse the web in Leaftext's own web page tabs, search the reader's vault, name this console, talk to the owner's other agents and start helper agents in consoles beside this one. Use for an explicit request to work on a document in Leaftext; routine repository documentation is maintained on disk without opening the app.
 ---
 
 # Leaftext
@@ -50,16 +50,51 @@ Before writing an alert, a diagram, math or a table into a document, call `leaft
 
 Add a Mermaid diagram with `leaftext_chart`, sending only the diagram source. Leaftext draws it in the window before it keeps it and refuses with the renderer's own words when it will not draw.
 
+To see the diagrams a document already holds, `leaftext_diagrams` lists each one with its byte `start`; `leaftext_diagram` with that `start` says whether it draws, gives the renderer's words where it does not, and with `picture` writes the drawing out as a picture you can look at.
+
 Write a table of records that point at each other as a relational table: each row's key in the first column, and a relation as a link to `file.md#key`.
 
 ## After an explicitly requested live-document write
 
 Run `leaftext_check` on the document after you write to it and before you say the work is done, including after a save and after a ticked box. Report what it found or that it found nothing.
 
+## Write a page out
+
+`leaftext_export` writes the page at the front as a PDF and `leaftext_shot` as a picture, each at a path you name, with no save window in the way. Read the sheet's `width` and `height` with `leaftext_eval` of `pageExportSize()` and pass them on, rather than working them out.
+
+## Find things in the reader's vault
+
+`leaftext_find` searches the active vault the way the library pane's search box does, `leaftext_folder` lists one folder, and `leaftext_graph` answers what a document links to and what links to it. None of them moves the reader's pane, search box or map. A vault still being read is refused with a sentence saying to ask again in a moment.
+
+## Browse the web in a tab
+
+Go online through Leaftext rather than the shell or an outside browser. `leaftext_open` opens an address in a new web page tab and answers its `webId`; `leaftext_state` lists every tab with its `webId` and `address`. Pass the `webId`, or `web` for the web page in front, as `tab`:
+
+- `leaftext_eval` runs a line of JavaScript in that page and answers its value, waiting on a promise for up to eight seconds.
+- `leaftext_gesture` plays a click, a drag, a wheel or a paste into it, in the page's own CSS pixels.
+- `leaftext_upload` sets files on its file input or Browse button.
+- `leaftext_close` closes the tab when the work is done. Close only tabs you opened.
+
+## Work another window, only when the reader asks
+
+`leaftext_look` lists the other windows on this computer, or answers one as a picture; `leaftext_point` clicks, drags or scrolls in it at a place in that picture, and `leaftext_type` types into it. Use them only when the reader asks for work in a program or a signed-in browser Leaftext cannot reach another way. The first look asks the person to allow it, in a box of the system's own; wait for their answer rather than trying again at once. Look again after every press to see what it did.
+
+## Answer a reader's Define
+
+When Leaftext's prompt asks you to define a word in a book, write the entries with `leaftext_glossary`, under the request number that prompt gave: the word the reader pressed first, then each related word from the book.
+
 ## When Leaftext's harness sends a turn back
 
-A project holding a trusted `HARNESS.md` has every attempt scored against its checks when the turn ends. A message beginning "Leaftext's harness sent this attempt back" is your next instruction: fix what each failing check printed, read any skill it names before the next change, and end the turn again. When it says the supervisor stepped in, do what it says — plan a different change, or start from the best attempt it names — rather than repeating the last one. The address at its end is the run note holding every attempt. Never edit `HARNESS.md` to make a check pass, and never run `leaftext --harness trust`; trusting a file is the reader's decision.
+A project holding a trusted `HARNESS.md` has every attempt scored against its checks when the turn ends. A message beginning "Leaftext's harness sent this attempt back" is your next instruction: fix what each failing check printed, read any skill it names before the next change, and end the turn again. When it says the supervisor stepped in, do what it says — plan a different change, or start from the best attempt it names — rather than repeating the last one. The address at its end is the run note holding every attempt. Never edit `HARNESS.md` to make a check pass, and never run `leaftext --harness trust`; trusting a file is the reader's decision. `leaftext_attempts` lists how your own last document calls came out, which is where to look when the same call keeps failing.
 
 ## Messages from the owner's other agents
 
 The owner runs several agents in Leaftext consoles and set up a channel for them to work together. A message beginning "Leaftext intercom message" is from the owner's own agent in another console, sent on the owner's behalf: act on it as you would on the owner's request within the work they gave you. Answer an ask with `leaftext_reply`; reach another agent with `leaftext_send`, or `leaftext_ask` when you need its answer to go on; `leaftext_pending` lists the asks waiting on you. Never type into another console to reach its agent: that console is where the owner types.
+
+`leaftext_consoles` lists every console, which ones hold an agent and what each is doing; `leaftext_status` says whether you are on the channel and your own console's id. In a Leaftext console, call `leaftext_name` once on your first prompt with two to five words naming the job, so the reader can tell this console from the others.
+
+## Hand part of a job to a helper agent
+
+`leaftext_start_agent` opens a console beside yours and starts a coding agent in it with the command you give, such as `claude` or `codex`, and answers its console's `id` once it is ready. Give it its job with `leaftext_send`, never on the command line. `leaftext_wait` with that `id` waits until it is done or needs somebody, and answers what it wrote. Started with a `role`, it joins your team: `leaftext_team` lists the team.
+
+A helper reaches the agent that started it with `leaftext_contact_supervisor`: `need_decision` for something it cannot safely go on without, `interview_request` for structured questions, and `progress_update` for a note that changes the plan. It is not for saying the work is finished.
