@@ -19,11 +19,7 @@ Three things are separate, and only the last one means the tools work:
 
 If `leaftext_doc` and the others are offered, use them and skip any setup. If they are not, never claim they are connected and never write the document through the shell instead. Tell the reader the Leaftext tool server is not connected in this session, ask them to check the connection in this host's plugin or tool-server settings, and to restart the agent after any change, because a host reads its tool servers when it starts. In Antigravity, add the server with `agy mcp add leaftext -- leaftext --mcp`, then restart the agent. The plugin's files are already present, so do not ask them to install it again.
 
-On a Mac, if the host says the `leaftext` server failed to start, the word is not on the command path yet. Ask the reader to run this once in a terminal, then restart the agent:
-
-```
-sudo mkdir -p /usr/local/bin && sudo ln -sf /Applications/leaftext.app/Contents/MacOS/leaftext /usr/local/bin/leaftext
-```
+On a Mac, if the host says the `leaftext` server failed to start, Leaftext has not been opened since it was installed: opening it puts the word `leaftext` in `~/.local/bin`. Ask the reader to open Leaftext, then restart the agent.
 
 If a tool answers that Leaftext is not running, ask the reader to open Leaftext, then try again.
 

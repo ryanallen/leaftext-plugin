@@ -1,5 +1,5 @@
 {
-  "description": "Claude Code and Codex report saved conversation titles; a trusted HARNESS.md also scores their work. Gemini CLI runs the corresponding harness hooks.",
+  "description": "Claude Code and Codex report saved conversation titles; a trusted HARNESS.md also scores their work.",
   "hooks": {
     "SessionStart": [
       { "hooks": [{ "type": "command", "command": "leaftext --harness start", "timeout": 5 }] }
@@ -24,28 +24,6 @@
       {
         "hooks": [
           { "type": "command", "command": "leaftext --harness stop", "timeout": 3600 }
-        ]
-      }
-    ],
-    "BeforeAgent": [
-      {
-        "hooks": [
-          { "type": "command", "command": "leaftext --harness prompt", "timeout": 10000 }
-        ]
-      }
-    ],
-    "AfterTool": [
-      {
-        "matcher": "write_file|replace|run_shell_command",
-        "hooks": [
-          { "type": "command", "command": "leaftext --harness wrote", "timeout": 10000 }
-        ]
-      }
-    ],
-    "AfterAgent": [
-      {
-        "hooks": [
-          { "type": "command", "command": "leaftext --harness stop", "timeout": 3600000 }
         ]
       }
     ]
