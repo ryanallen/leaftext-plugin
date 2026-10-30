@@ -3,5 +3,9 @@
     "SessionStart": [{ "type": "command", "command": "leaftext --harness status", "timeout": 5 }],
     "PostToolUse": [{ "hooks": [{ "type": "command", "command": "leaftext --harness status", "timeout": 5 }] }],
     "Stop": [{ "type": "command", "command": "leaftext --harness status", "timeout": 5 }]
+  },
+  "leaftext-intercom": {
+    "PreInvocation": [{ "type": "command", "command": "leaftext --harness agy-bootstrap", "timeout": 5 }],
+    "Stop": [{ "type": "command", "command": "leaftext --harness agy-stop", "timeout": 5 }]
   }
 }
