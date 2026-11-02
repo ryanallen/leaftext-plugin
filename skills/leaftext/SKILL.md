@@ -73,7 +73,7 @@ Go online through Leaftext rather than the shell or an outside browser. `leaftex
 
 ## Work another window, only when the reader asks
 
-`leaftext_look` lists the other windows on this computer, or answers one as a picture; `leaftext_point` clicks, drags or scrolls in it at a place in that picture, and `leaftext_type` types into it. Use them only when the reader asks for work in a program or a signed-in browser Leaftext cannot reach another way. The first look asks the person to allow it, in a box of the system's own; wait for their answer rather than trying again at once. Look again after every press to see what it did.
+`leaftext_look` lists the other windows on this computer, or answers one as a picture; `leaftext_point` clicks, drags or scrolls in it at a place in that picture, and `leaftext_type` types into it. Use them only when the reader asks for work in a program or a signed-in browser Leaftext cannot reach another way. The first look asks the person to allow it, in a box of the system's own; wait for their answer rather than trying again at once. Look again after every press to see what it did. On a Mac they also need two switches the person turns on once, in System Settings → Privacy & Security: Screen Recording for the look and Accessibility for the presses; where either is off, the tool answers which one, so tell the person that sentence and wait. A work computer's own management can keep either switch off: say so and stop, never look for a way around it. Nothing here works until the person has said yes, and nothing turns on by itself.
 
 ## Answer a reader's Define
 
