@@ -93,4 +93,6 @@ The owner runs several agents in Leaftext consoles and set up a channel for them
 
 `leaftext_start_agent` opens a console beside yours and starts a coding agent in it with the command you give, such as `claude` or `codex`, and answers its console's `id` once it is ready. Give it its job with `leaftext_send`, never on the command line. `leaftext_wait` with that `id` waits until it is done or needs somebody, and answers what it wrote. Started with a `role`, it joins your team: `leaftext_team` lists the team.
 
+`leaftext_chain` starts a chain the owner wrote and trusted: a note in a vault's `chains` folder listing skills as numbered steps. Leaftext opens one console, types each step as the agent finishes the one before, and writes a run note in the vault's `runs` folder; name the chain and give `values` for any `{name}` slot its steps carry.
+
 A helper reaches the agent that started it with `leaftext_contact_supervisor`: `need_decision` for something it cannot safely go on without, `interview_request` for structured questions, and `progress_update` for a note that changes the plan. It is not for saying the work is finished.
