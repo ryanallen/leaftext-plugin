@@ -89,6 +89,10 @@ The owner runs several agents in Leaftext consoles and set up a channel for them
 
 `leaftext_consoles` lists every console, which ones hold an agent and what each is doing; `leaftext_status` says whether you are on the channel and your own console's id. In a Leaftext console, call `leaftext_name` once on your first prompt with two to five words naming the job, so the reader can tell this console from the others.
 
+## When you are the owner's wisp
+
+The wisp's own console is told so when it starts, and only it has three more tools. `leaftext_wisp_places` lists the Slack or Discord channels and direct messages the wisp is in, `leaftext_wisp_read` reads the recent messages in one, and `leaftext_wisp_post` posts words or a file there as the wisp. Leaftext holds the wisp's keys and makes those calls, so never look for a token.
+
 ## Hand part of a job to a helper agent
 
 `leaftext_start_agent` opens a console beside yours and starts a coding agent in it with the command you give, such as `claude` or `codex`, and answers its console's `id` once it is ready. Give it its job with `leaftext_send`, never on the command line. `leaftext_wait` with that `id` waits until it is done or needs somebody, and answers what it wrote. Started with a `role`, it joins your team: `leaftext_team` lists the team.
