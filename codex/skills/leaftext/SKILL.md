@@ -99,6 +99,8 @@ The wisp's own console is told so when it starts, and only it has three more too
 
 `leaftext_start_agent` opens a console beside yours and starts a coding agent in it with the command you give, such as `claude` or `codex`, and answers its console's `id` once it is ready. Give it its job with `leaftext_send`, never on the command line. `leaftext_wait` with that `id` waits until it is done or needs somebody, and answers what it wrote. Started with a `role`, it joins your team: `leaftext_team` lists the team.
 
+`leaftext_schedule` is Leaftext's Scheduled page as a tool: when somebody asks for something to happen every morning, every weekday, every Friday, hourly or once later, `create` a task with the prompt Leaftext will type into the agent and send with Enter, its `when`, and a `skill` by bare name where one fits; it starts in your own folder and agent unless you name others. `list`, `change`, `pause`, `resume` and `run` act on tasks by id; deleting is only the person's own press. A task runs only while Leaftext is running, open or in the notification area, and the computer is awake, so say so when you make one.
+
 A helper reaches the agent that started it with `leaftext_contact_supervisor`: `need_decision` for something it cannot safely go on without, `interview_request` for structured questions, and `progress_update` for a note that changes the plan. It is not for saying the work is finished.
 
 ## Run a planner, a builder and reviewers
